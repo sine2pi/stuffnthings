@@ -15,7 +15,7 @@ def create_preview(video_path, num_snippets=5, snippet_duration=0.8, snippet_int
         start_time = 180 + i * snippet_interval
         command = [
             'ffmpeg', '-ss', str(start_time), '-i', video_path, '-t', str(snippet_duration),
-            '-vf', 'scale=720:720', '-c:v', 'av1_nvenc', '-cq', '35', '-b:v', '0', f'snippet_{i}.mp4'
+            '-vf', 'scale=720:720', '-c:v', 'libx265', '-cq', '35', '-b:v', '0', f'snippet_{i}.mp4'
         ]
         commands.append(command)
 
@@ -29,7 +29,7 @@ def create_preview(video_path, num_snippets=5, snippet_duration=0.8, snippet_int
             f.write(f"file '{file}'\n")
     
     concat_command = [
-        'ffmpeg', '-f', 'concat', '-safe', '0', '-i', 'concat_list.txt', '-c:v', 'av1_nvenc',
+        'ffmpeg', '-f', 'concat', '-safe', '0', '-i', 'concat_list.txt', '-c:v', 'libx265',
         '-cq', '30', '-b:v', '0', output_filename
     ]
 
