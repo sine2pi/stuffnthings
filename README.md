@@ -6,3 +6,5 @@ Example.. you have a movie in a directory that has 3 parts you can set it to mak
 mp4_to_dataset.py: all in one script to turn a movie with srt into hundreds of audio samples with transcripts.
 
 new_token.py : give an old tokenizer a new vocab
+
+preproccessing.py : rips an audio dataset from hugging face on the fly turning it into mp3/wavs with transcript .. also processes out silence from audio and bad transcripts etc etc. every dataset on hugging face ie common voice has bad samples in the training set.
