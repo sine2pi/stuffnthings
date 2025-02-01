@@ -46,9 +46,7 @@ def process_directory(directory, trailers_dir, num_snippets=5, snippet_duration=
     for root, _, files in os.walk(directory, followlinks=True):
         for filename in files:
             if filename.lower().endswith(".mp4"):
-                base_match = re.match(r"
-
-\[(.*?)]", filename)
+                base_match = re.match(r"\[(.*?)]", filename)
                 if base_match:
                     base_name = base_match.group(1)
                     if base_name in processed_basenames:
